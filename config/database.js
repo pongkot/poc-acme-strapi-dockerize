@@ -1,11 +1,11 @@
 const path = require('path');
 
 module.exports = ({ env }) => ({
+  defaultConnection: "default",
   connection: {
-    client: 'sqlite',
+    client: "postgres",
     connection: {
-      filename: path.join(__dirname, '..', env('DATABASE_FILENAME', '.tmp/data.db')),
+      connectionString: env('PG_CONNECTION_STRING'),
     },
-    useNullAsDefault: true,
-  },
+  }
 });
