@@ -12,6 +12,6 @@ RUN npm run build
 
 FROM node:lts
 WORKDIR /usr/src/app
-COPY --from=dependencies /usr/src/app/node_modules ./node_modules
 COPY --from=artifact /usr/src/app .
-RUN npm run build
+EXPOSE 1337
+CMD npm start
