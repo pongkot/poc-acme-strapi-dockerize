@@ -11,6 +11,7 @@ COPY . .
 RUN npm run build
 
 FROM node:lts
+ENV PG_CONNECTION_STRING=postgres://postgres:password@localhost:5432
 WORKDIR /usr/src/app
 COPY --from=artifact /usr/src/app .
 EXPOSE 1337
